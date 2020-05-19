@@ -4,7 +4,7 @@ def linear_search(arr, target):
   
         if arr[i] == target: 
             return i 
-            
+
     return -1   
 
 
@@ -13,22 +13,18 @@ def binary_search(arr, target):
     # Your code here
     low = 0
     high = len(arr) - 1
-    mid = 0
+    mid_index = 0
   
     while low <= high: 
   
-        mid = (high + low) // 2
-        # check if x is present at mid 
-        if arr[mid] < target: 
-            low = mid + 1
-  
-        # if x is greater, ignore left half 
-        elif arr[mid] > target: 
-            high = mid - 1
-  
-        # if x is smaller, ignore right half 
-        else: 
-            return mid 
+        mid_index = (high + low) // 2
+        mid_value = arr[mid_index]
 
+        if mid_value == target:
+            return mid_index
+        elif target < mid_value:
+            high = mid_index - 1
+        else:
+            low = mid_index +1
 
     return -1  # not found
